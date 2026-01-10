@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookstore Footer with Icons</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e1f5fe;
+    color: #333;
+  }
+
+  footer {
+   background: linear-gradient(135deg, #2c3e50, #3498db);/* dim sky blue */
+    color: #e1f5fe;
+    padding: 60px 20px 30px 20px;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .footer-left, .footer-center, .footer-right {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .footer-left:hover, .footer-center:hover, .footer-right:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+  }
+
+  .footer-left h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #81d4fa;
+  }
+
+  .footer-left p, .footer-left a {
+    color: #e1f5fe;
+    text-decoration: none;
+    margin: 5px 0;
+    display: block;
+    transition: color 0.3s;
+  }
+
+  .footer-left a:hover {
+    color: #a3d2f2;
+  }
+
+  .social {
+      display: flex;
+      gap: 20px;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      perspective: 1000px; /* 3D effect */
+      cursor: pointer;
+    }
+
+    .icon-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    /* Flip when hover */
+    .icon:hover .icon-inner {
+      transform: rotateY(180deg);
+    }
+
+    .icon-front,
+    .icon-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-back {
+      transform: rotateY(180deg);
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+  .footer-center h3,
+  .footer-right h3 {
+    color: #81d4fa;
+    margin-bottom: 15px;
+  }
+
+  .footer-center ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-center ul li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  .footer-center ul li img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  .footer-center ul li a {
+    color: #e1f5fe;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .footer-center ul li a:hover {
+    color: #a3d2f2;
+  }
+
+  .footer-right iframe {
+    width: 100%;
+    height: 180px;
+    border: 0;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+  }
+
+  .newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .newsletter input {
+    padding: 10px;
+    flex: 1;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+    background: rgba(255,255,255,0.1);
+    color: #e1f5fe;
+    transition: background 0.3s;
+  }
+
+  .newsletter input:focus {
+    background: rgba(255,255,255,0.2);
+  }
+
+  .newsletter button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #81d4fa;
+    color: #0f4c75;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .newsletter button:hover {
+    background-color: #a3d2f2;
+    transform: scale(1.05);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #81d4fa;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #e1f5fe;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container { flex-direction: column; text-align: center; }
+    .newsletter { flex-direction: column; }
+    .newsletter input, .newsletter button { border-radius: 8px; margin: 5px 0; }
+    .footer-center ul li { justify-content: center; }
+  }
+  .social a img {
+      margin: 0 10px;
+      transition: transform 0.3s ease;
+    }
+    .social a:hover img {
+      transform: scale(1.2);
+    }
+</style>
+</head>
+<body>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-left">
+      <h2>BookVerse</h2>
+      <p>Email: <a href="mailto:divyanshm989@gmail.com">divyanshm989@gmail.com</a></p>
+      <p>Phone: <a href="tel:+917992159410">+91 7992159410</a></p>
+      <div class="social">
+    <!-- Facebook -->
+    <a href="https://www.facebook.com" target="_blank" class="icon">
+      <div class="icon-inner">
+        <div class="icon-front">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/facebook-new.png" alt="Facebook">
+        </div>
+        <div class="icon-back">
+          <img src="https://img.icons8.com/color/40/facebook-new.png" alt="Facebook">
+        </div>
+      </div>
+    </a>
+
+    <!-- Twitter -->
+    <a href="https://www.twitter.com" target="_blank" class="icon">
+      <div class="icon-inner">
+        <div class="icon-front">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/twitter.png" alt="Twitter">
+        </div>
+        <div class="icon-back">
+          <img src="https://img.icons8.com/color/40/twitter.png" alt="Twitter">
+        </div>
+      </div>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com" target="_blank" class="icon">
+      <div class="icon-inner">
+        <div class="icon-front">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/instagram-new.png" alt="Instagram">
+        </div>
+        <div class="icon-back">
+          <img src="https://img.icons8.com/color/40/instagram-new.png" alt="Instagram">
+        </div>
+      </div>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com" target="_blank" class="icon">
+      <div class="icon-inner">
+        <div class="icon-front">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/linkedin.png" alt="LinkedIn">
+        </div>
+        <div class="icon-back">
+          <img src="https://img.icons8.com/color/40/linkedin.png" alt="LinkedIn">
+        </div>
+      </div>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://www.github.com" target="_blank" class="icon">
+      <div class="icon-inner">
+        <div class="icon-front">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/github.png" alt="GitHub">
+        </div>
+        <div class="icon-back">
+          <img src="https://img.icons8.com/ios-glyphs/40/000000/github.png" alt="GitHub">
+        </div>
+      </div>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com" target="_blank" class="icon">
+      <div class="icon-inner">
+        <div class="icon-front">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/youtube.png" alt="YouTube">
+        </div>
+        <div class="icon-back">
+          <img src="https://img.icons8.com/color/40/youtube-play.png" alt="YouTube">
+        </div>
+      </div>
+    </a>
+
+    <!-- Pinterest -->
+    <a href="https://www.pinterest.com" target="_blank" class="icon">
+      <div class="icon-inner">
+        <div class="icon-front">
+          <img src="https://img.icons8.com/ios-filled/40/ffffff/pinterest.png" alt="Pinterest">
+        </div>
+        <div class="icon-back">
+          <img src="https://img.icons8.com/color/40/pinterest--v1.png" alt="Pinterest">
+        </div>
+      </div>
+    </a>
+  </div>
+    </div>
+
+    <div class="footer-center">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><img src="https://img.icons8.com/ios-filled/16/ffffff/home.png"/><a href="a3.php">Home</a></li>
+        <li><img src="https://img.icons8.com/ios-filled/16/ffffff/book-shelf.png"/><a href="categories.php">Categories</a></li>
+        <li><img src="https://img.icons8.com/ios-filled/16/ffffff/open-book.png"/><a href="book.php">Books</a></li>
+        <li><img src="https://img.icons8.com/ios-filled/16/ffffff/info.png"/><a href="about1.php">About Us</a></li>
+        <li><img src="https://img.icons8.com/ios-filled/16/ffffff/contacts.png"/><a href="contact.php">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-right">
+      <h3>Our Location</h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.798702716518!2d77.49252807518987!3d28.599106782418175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5f6f10f02bb%3A0x1f3baf7f8b2b1d68!2sKnowledge%20Park%203%2C%20Greater%20Noida!5e0!3m2!1sen!2sin!4v1692248627558!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+      <div class="newsletter">
+        <input type="email" placeholder="Subscribe to newsletter">
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">&copy; 2025 BookVerse. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
